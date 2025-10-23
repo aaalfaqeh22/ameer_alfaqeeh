@@ -7,10 +7,6 @@
   <meta name="description" content="Cybersecurity student portfolio for Ameer Ahmad Mohammad Al-faqeeh" />
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
-  <style>
-    /* تحسين بسيط لو أردت إطار دائري للصورة */
-    .profile-img{object-fit:cover;border-radius:16px;max-width:100%;height:auto;display:block;margin:0 auto;}
-  </style>
 </head>
 <body>
 
@@ -36,17 +32,28 @@
 
   <!-- PHOTO -->
   <section id="profile-photo" aria-labelledby="profile-photo-title">
-    <h2 id="profile-photo-title" class="sr-only" style="position:absolute;left:-9999px;">Profile Photo</h2>
+    <h2 id="profile-photo-title" class="sr-only">Profile Photo</h2>
 
-    <!-- نحاول تحميل الصورة من الرابط المطلق الصحيح. إن فشل، نستبدلها بـ Placeholder -->
-    <img
-      class="profile-img"
-      src="https://aaalfaqeeh22.github.io/ameer_alfaqeeh/images/Personal.jpg?v=2"
-      alt="Portrait of Ameer Ahmad Mohammad Al-faqeeh"
-      width="800" height="800"
-      onerror="this.onerror=null; this.src='https://via.placeholder.com/800x800?text=Photo';"
-      loading="lazy"
-    >
+    <!-- Fallback ذكي: نحاول GitHub Pages ثم raw.githubusercontent، وإن فشل نعرض placeholder -->
+    <picture>
+      <!-- محاولة GitHub Pages -->
+      <source
+        srcset="https://aaalfaqeeh22.github.io/ameer_alfaqeeh/images/Personal.jpg?v=4"
+        type="image/jpeg" />
+      <!-- محاولة raw (فوري حتى لو Pages متأخّر) -->
+      <source
+        srcset="https://raw.githubusercontent.com/aaalfaqeeh22/ameer_alfaqeeh/main/images/Personal.jpg?v=4"
+        type="image/jpeg" />
+      <!-- img الفعلي + onerror -->
+      <img
+        class="avatar"
+        src="https://aaalfaqeeh22.github.io/ameer_alfaqeeh/images/Personal.jpg?v=4"
+        alt="Portrait of Ameer Ahmad Mohammad Al-faqeeh"
+        width="1024" height="1024"
+        loading="lazy"
+        onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/aaalfaqeeh22/ameer_alfaqeeh/main/images/Personal.jpg?v=4';"
+      />
+    </picture>
   </section>
 
   <!-- MAIN CARD -->
@@ -102,7 +109,6 @@
       </p>
     </section>
 
-    <!-- OPTIONAL PROJECTS -->
     <section id="projects" aria-labelledby="projects-title">
       <h2 id="projects-title">Highlighted Projects (Samples)</h2>
       <div class="grid">
