@@ -105,20 +105,20 @@ body {
   filter: blur(8px);
   z-index: 0;
 }
-#profile-photo img {
+/* ملاحظة: نستخدم .avatar في HTML */
+#profile-photo .avatar {
   position: relative;
   z-index: 1;
   width: clamp(240px, 32vw, 380px);
   height: clamp(240px, 32vw, 380px);
-  object-fit: cover;
+  object-fit: cover;              /* يملأ الإطار بدون تمدد غريب */
   border-radius: 50%;
   border: 6px solid var(--primary-color);
-  /* توهج وظل أقوى لإبراز الصورة */
   box-shadow:
     0 0 0 6px rgba(0, 255, 153, 0.18),
     0 20px 50px rgba(0, 255, 153, 0.20),
     0 10px 24px rgba(0, 119, 255, 0.14);
-  background: #0b0f14;
+  background: transparent;        /* مهم: لا تعطِ خلفية داكنة عند فشل التحميل */
   image-rendering: -webkit-optimize-contrast;
   filter: brightness(1.06) contrast(1.05);
 }
@@ -285,7 +285,7 @@ table a:hover, table a:focus-visible {
 
 /* ========== Responsive Tweaks ========== */
 @media (max-width: 520px) {
-  #profile-photo img {
+  #profile-photo .avatar {
     width: min(78vw, 320px);
     height: min(78vw, 320px);
   }
