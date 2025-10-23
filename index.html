@@ -34,26 +34,19 @@
   <section id="profile-photo" aria-labelledby="profile-photo-title">
     <h2 id="profile-photo-title" class="sr-only">Profile Photo</h2>
 
-    <!-- Fallback ذكي: نحاول GitHub Pages ثم raw.githubusercontent، وإن فشل نعرض placeholder -->
-    <picture>
-      <!-- محاولة GitHub Pages -->
-      <source
-        srcset="https://aaalfaqeeh22.github.io/ameer_alfaqeeh/images/Personal.jpg?v=4"
-        type="image/jpeg" />
-      <!-- محاولة raw (فوري حتى لو Pages متأخّر) -->
-      <source
-        srcset="https://raw.githubusercontent.com/aaalfaqeeh22/ameer_alfaqeeh/main/images/Personal.jpg?v=4"
-        type="image/jpeg" />
-      <!-- img الفعلي + onerror -->
-      <img
-        class="avatar"
-        src="https://aaalfaqeeh22.github.io/ameer_alfaqeeh/images/Personal.jpg?v=4"
-        alt="Portrait of Ameer Ahmad Mohammad Al-faqeeh"
-        width="1024" height="1024"
-        loading="lazy"
-        onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/aaalfaqeeh22/ameer_alfaqeeh/main/images/Personal.jpg?v=4';"
-      />
-    </picture>
+    <!-- نستخدم raw كمسار أساسي + فحص تلقائي -->
+    <img
+      class="avatar"
+      src="https://raw.githubusercontent.com/aaalfaqeeh22/ameer_alfaqeeh/main/images/Personal.jpg?v=5"
+      alt="Portrait of Ameer Ahmad Mohammad Al-faqeeh"
+      width="1024" height="1024"
+      loading="lazy"
+      decoding="async"
+      onerror="this.onerror=null; this.src='https://via.placeholder.com/800x800?text=Photo';"
+    />
+    <noscript>
+      <img class="avatar" src="https://raw.githubusercontent.com/aaalfaqeeh22/ameer_alfaqeeh/main/images/Personal.jpg" alt="Portrait of Ameer Ahmad Mohammad Al-faqeeh" width="1024" height="1024" />
+    </noscript>
   </section>
 
   <!-- MAIN CARD -->
